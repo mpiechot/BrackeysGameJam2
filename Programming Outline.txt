@@ -1,0 +1,11 @@
+Essen:
+
+    Zutaten Liste (Struct type Zutat)
+        Zutat Zustand (Enum)
+        Kochzeit
+        
+    + 
+    
+    Cook()
+    
+    

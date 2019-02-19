@@ -19,6 +19,7 @@ public class PlayerScripts : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         tileMask = transform.Find("TileMask").gameObject;
         tileMask.SetActive(true);
+        carrySprite.enabled = false;
     }
 
 
@@ -28,7 +29,7 @@ public class PlayerScripts : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position,lastDirection, 2f,LayerMask.NameToLayer("Interactable"));
-            if(hit != null)
+            if(hit.collider != null)
             {
                 InteractObject obj = hit.collider.gameObject.GetComponent<InteractObject>();
                 if (obj.CanGetIngredient)

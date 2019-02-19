@@ -69,8 +69,10 @@ public class PlayerScripts : MonoBehaviour
 
 
         moveVector = new Vector2(xMove, yMove) * Time.deltaTime * 60f;
-        if(moveVector != Vector2.zero)
+        if(moveVector != Vector2.zero) {
             lastDirection = moveVector;
+            carrySprite.gameObject.transform.position = (Vector2)transform.position + moveVector.normalized;
+        }
         rb.velocity = moveVector;
     }
 

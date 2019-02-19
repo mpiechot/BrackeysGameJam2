@@ -9,11 +9,13 @@ public class PlayerScripts : MonoBehaviour
 
     private Vector2 moveVector;
     private Rigidbody2D rb;
-
+    private GameObject tileMask;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        tileMask = transform.Find("TileMask").gameObject;
+        tileMask.SetActive(true);
     }
 
 

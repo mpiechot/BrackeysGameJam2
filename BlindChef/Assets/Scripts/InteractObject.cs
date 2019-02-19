@@ -8,4 +8,6 @@ public abstract class InteractObject : MonoBehaviour
     public bool CanGetIngredient;
     public bool IsEmpty;
 
+    public abstract Essen GetFood();
+
 }

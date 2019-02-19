@@ -17,18 +17,28 @@ public struct Zutat
     public string ZutatName;
 }
 
-public class Essen : MonoBehaviour
+public class Essen
 {
 
     public List<Zutat> ZutatenListe { get; private set; }
 
-    void Start()
+    public Essen()
     {
         ZutatenListe = new List<Zutat>();
+    }
+
+    public Essen(List<Zutat> initZutat)
+    {
+        ZutatenListe = initZutat;
     }
 
     public void AddZutat(Zutat zutat)
     {
         ZutatenListe.Add(zutat);
+    }
+
+    public void Merge(Essen otherEssen)
+    {
+        ZutatenListe.AddRange(otherEssen.ZutatenListe);
     }
 }

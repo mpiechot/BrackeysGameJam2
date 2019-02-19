@@ -28,7 +28,8 @@ public class PlayerScripts : MonoBehaviour
         HandleMovement();
         if (Input.GetButtonDown("Fire1"))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position,lastDirection, 2f,LayerMask.NameToLayer("Interactable"));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position,lastDirection, 2f,1 << LayerMask.NameToLayer("Interactable"));
+            //Debug.DrawLine(transform.position, (Vector2)transform.position + lastDirection);
             if(hit.collider != null)
             {
                 InteractObject obj = hit.collider.gameObject.GetComponent<InteractObject>();
@@ -62,13 +63,14 @@ public class PlayerScripts : MonoBehaviour
 
     void HandleMovement()
     {
-        float xMove = Input.GetAxis("Horizontal") * MoveSpeed;
-        float yMove = Input.GetAxis("Vertical") * MoveSpeed;
+        float xMove = Input.GetAxisRaw("Horizontal") * MoveSpeed;
+        float yMove = Input.GetAxisRaw("Vertical") * MoveSpeed;
 
 
 
         moveVector = new Vector2(xMove, yMove) * Time.deltaTime * 60f;
-        lastDirection = moveVector;
+        if(moveVector != Vector2.zero)
+            lastDirection = moveVector;
         rb.velocity = moveVector;
     }
 

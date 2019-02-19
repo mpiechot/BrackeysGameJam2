@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FoodSotrage : InteractObject
 {
-    public string ZutatZuHolen;
+    public ZutatTyp ZutatZuHolen;
 
 
     public override Essen GetFood()

@@ -14,6 +14,10 @@ public class Pot : InteractObject
     protected override void Process()
     {
         currentProcessTime += Time.deltaTime;
+        if(currentProcessTime > ProcessTime * 1.5f)
+            currentEssen.ZutatenListe.ForEach(z => z.Zustand = ZutatZustand.Verbrannt);
+        else if(currentProcessTime > ProcessTime)
+            currentEssen.ZutatenListe.ForEach(z => z.Zustand = ZutatZustand.Gekocht);
     }
 
     public override void AddFood(Essen foodToAdd)

@@ -27,13 +27,13 @@ public class Bar : InteractObject
             print(z.ZutatName + ": " + z.Zustand);
             if ((z.Zustand & 1) == 1)
                 print("Roh");
-            if ((z.Zustand & 2) == 1)
+            if ((z.Zustand & 2) == 2)
                 print("Gekocht");
-            if ((z.Zustand & 4) == 1)
+            if ((z.Zustand & 4) == 4)
                 print("Verbrannt");
-            if ((z.Zustand & 8) == 1)
+            if ((z.Zustand & 8) == 8)
                 print("Gewaschen");
-            if ((z.Zustand & 16) == 1)
+            if ((z.Zustand & 16) == 16)
                 print("Vermüllt");
         }
         );

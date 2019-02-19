@@ -35,6 +35,8 @@ public class Pot : InteractObject
             for (int i = 0; i < currentEssen.ZutatenListe.Count; i++)
             {
                 var z = currentEssen.ZutatenListe[i];
+                z.Zustand = (byte)(z.Zustand >> 1);
+                z.Zustand = (byte)(z.Zustand << 1);
                 z.Zustand |= (byte)ZutatZustand.Gekocht;
                 currentEssen.ZutatenListe[i] = z;
             }

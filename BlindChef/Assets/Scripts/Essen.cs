@@ -11,16 +11,16 @@ public enum ZutatTyp
 
 public enum ZutatZustand
 {
-    Roh,
-    Gekocht,
-    Verbrannt,
-    Gewaschen,
-    Vermüllt
+    Roh = 1,
+    Gekocht = 2,
+    Verbrannt = 4,
+    Gewaschen = 8,
+    Vermüllt = 16
 }
 
 public struct Zutat
 {
-    public ZutatZustand Zustand;
+    public byte Zustand;
     public ZutatTyp ZutatName;
 }
 

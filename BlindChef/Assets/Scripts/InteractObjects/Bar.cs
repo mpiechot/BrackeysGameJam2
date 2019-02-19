@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DustBin : InteractObject
+public class Bar : InteractObject
 {
 
     private void Start()
@@ -21,20 +21,26 @@ public class DustBin : InteractObject
 
     protected override void Process()
     {
-        currentProcessTime += Time.deltaTime;
-        if (currentProcessTime > ProcessTime)
+        print("Essen abgegeben.");
+        currentEssen.ZutatenListe.ForEach(z =>
         {
-            for(int i = 0; i < currentEssen.ZutatenListe.Count; i++)
-            {
-                var z = currentEssen.ZutatenListe[i];
-                z.Zustand |= (byte)ZutatZustand.Vermüllt;
-                currentEssen.ZutatenListe[i] = z;
-            }
+            print(z.ZutatName + ": " + z.Zustand);
+            if ((z.Zustand & 1) == 1)
+                print("Roh");
+            if ((z.Zustand & 2) == 1)
+                print("Gekocht");
+            if ((z.Zustand & 4) == 1)
+                print("Verbrannt");
+            if ((z.Zustand & 8) == 1)
+                print("Gewaschen");
+            if ((z.Zustand & 16) == 1)
+                print("Vermüllt");
         }
-
-
-        currentEssen.ZutatenListe.ForEach(z => print(z.Zustand));
-
+        );
+        IsEmpty = true;
+        isProcessing = false;
+        currentProcessTime = 0;
+        CanGetIngredient = false;
     }
 
     public override void AddFood(Essen foodToAdd)

@@ -18,6 +18,7 @@ public class FoodSotrage : InteractObject
     {
         Zutat zutat = new Zutat();
         zutat.ZutatName = ZutatZuHolen;
+        zutat.Zustand = (byte)ZutatZustand.Roh;
         return new Essen(new List<Zutat> { zutat });
     }
 }

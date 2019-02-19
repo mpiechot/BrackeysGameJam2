@@ -22,11 +22,26 @@ public class Pot : InteractObject
     {
         currentProcessTime += Time.deltaTime;
         if(currentProcessTime > ProcessTime * 1.5f)
-            currentEssen.ZutatenListe.ForEach(z => z.Zustand = ZutatZustand.Verbrannt);
+        {
+            for (int i = 0; i < currentEssen.ZutatenListe.Count; i++)
+            {
+                var z = currentEssen.ZutatenListe[i];
+                z.Zustand |= (byte)ZutatZustand.Verbrannt;
+                currentEssen.ZutatenListe[i] = z;
+            }
+        }
         else if(currentProcessTime > ProcessTime)
         {
-            currentEssen.ZutatenListe.ForEach(z => z.Zustand = ZutatZustand.Gekocht);
+            for (int i = 0; i < currentEssen.ZutatenListe.Count; i++)
+            {
+                var z = currentEssen.ZutatenListe[i];
+                z.Zustand |= (byte)ZutatZustand.Gekocht;
+                currentEssen.ZutatenListe[i] = z;
+            }
         }
+
+
+        currentEssen.ZutatenListe.ForEach(z => print(z.Zustand));
     }
 
     public override void AddFood(Essen foodToAdd)

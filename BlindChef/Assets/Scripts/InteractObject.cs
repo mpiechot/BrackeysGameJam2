@@ -5,8 +5,8 @@ using UnityEngine;
 public abstract class InteractObject : MonoBehaviour
 {
 
-    public bool CanGetIngredient;
-    public bool IsEmpty;
+    public bool CanGetIngredient { get; protected set; }
+    public bool IsEmpty { get; protected set; }
 
     [SerializeField]
     protected float ProcessTime;

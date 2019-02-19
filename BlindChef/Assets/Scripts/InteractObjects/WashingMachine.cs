@@ -27,6 +27,9 @@ public class WashingMachine : InteractObject
 
     public override Essen GetFood()
     {
+        IsEmpty = true;
+        isProcessing = false;
+        currentProcessTime = 0;
         return currentEssen;
     }
 }

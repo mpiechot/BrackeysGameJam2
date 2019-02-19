@@ -142,8 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c95911d71ed7c498a8b4482563911f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanGetIngredient: 1
-  IsEmpty: 0
   ProcessTime: 0
   ZutatZuHolen: 0
 --- !u!61 &127132211
@@ -512,8 +510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c95911d71ed7c498a8b4482563911f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanGetIngredient: 1
-  IsEmpty: 0
   ProcessTime: 0
   ZutatZuHolen: 0
 --- !u!61 &443298058
@@ -586,8 +582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfc9d1325be7804893915ab43e8b53c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanGetIngredient: 0
-  IsEmpty: 1
   ProcessTime: 10
 --- !u!61 &455660076
 BoxCollider2D:
@@ -659,8 +653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfc9d1325be7804893915ab43e8b53c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanGetIngredient: 0
-  IsEmpty: 1
   ProcessTime: 10
 --- !u!61 &456741431
 BoxCollider2D:
@@ -732,8 +724,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f75552b2d963b4894c48f4a4b44741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanGetIngredient: 0
-  IsEmpty: 1
   ProcessTime: 10
 --- !u!61 &493239246
 BoxCollider2D:
@@ -805,8 +795,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c95911d71ed7c498a8b4482563911f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanGetIngredient: 1
-  IsEmpty: 0
   ProcessTime: 0
   ZutatZuHolen: 0
 --- !u!61 &511909855
@@ -1200,8 +1188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfc9d1325be7804893915ab43e8b53c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanGetIngredient: 0
-  IsEmpty: 1
   ProcessTime: 10
 --- !u!61 &946315365
 BoxCollider2D:
@@ -1273,8 +1259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfc9d1325be7804893915ab43e8b53c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanGetIngredient: 0
-  IsEmpty: 1
   ProcessTime: 10
 --- !u!61 &994138901
 BoxCollider2D:
@@ -1346,8 +1330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c95911d71ed7c498a8b4482563911f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanGetIngredient: 1
-  IsEmpty: 0
   ProcessTime: 0
   ZutatZuHolen: 0
 --- !u!61 &1166184372
@@ -1420,8 +1402,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f75552b2d963b4894c48f4a4b44741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanGetIngredient: 0
-  IsEmpty: 1
   ProcessTime: 10
 --- !u!61 &1213673249
 BoxCollider2D:
@@ -1681,8 +1661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f75552b2d963b4894c48f4a4b44741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanGetIngredient: 0
-  IsEmpty: 1
   ProcessTime: 10
 --- !u!61 &1913930253
 BoxCollider2D:
@@ -1754,8 +1732,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfc9d1325be7804893915ab43e8b53c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanGetIngredient: 0
-  IsEmpty: 1
   ProcessTime: 10
 --- !u!61 &1998156991
 BoxCollider2D:
@@ -1827,8 +1803,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f75552b2d963b4894c48f4a4b44741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanGetIngredient: 0
-  IsEmpty: 1
   ProcessTime: 10
 --- !u!61 &2025011077
 BoxCollider2D:
@@ -1900,8 +1874,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f75552b2d963b4894c48f4a4b44741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanGetIngredient: 0
-  IsEmpty: 1
   ProcessTime: 10
 --- !u!61 &2032533157
 BoxCollider2D:

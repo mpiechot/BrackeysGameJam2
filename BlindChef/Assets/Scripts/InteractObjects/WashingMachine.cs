@@ -5,6 +5,14 @@ using UnityEngine;
 public class WashingMachine : InteractObject
 {
 
+    private void Start()
+    {
+        IsEmpty = true;
+        isProcessing = false;
+        currentProcessTime = 0;
+        CanGetIngredient = false;
+    }
+
     void Update()
     {
         if (isProcessing)
@@ -23,6 +31,7 @@ public class WashingMachine : InteractObject
         currentEssen = foodToAdd;
         IsEmpty = false;
         isProcessing = true;
+        CanGetIngredient = true;
     }
 
     public override Essen GetFood()
@@ -30,6 +39,7 @@ public class WashingMachine : InteractObject
         IsEmpty = true;
         isProcessing = false;
         currentProcessTime = 0;
+        CanGetIngredient = false;
         return currentEssen;
     }
 }

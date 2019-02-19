@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ZutatTyp
+{
+    Pilze,
+    Tomaten,
+    Hackfleisch
+}
+
 public enum ZutatZustand
 {
     Roh,
@@ -14,7 +21,7 @@ public enum ZutatZustand
 public struct Zutat
 {
     public ZutatZustand Zustand;
-    public string ZutatName;
+    public ZutatTyp ZutatName;
 }
 
 public class Essen

@@ -1,11 +1,5 @@
-Essen:
-
-    Zutaten Liste (Struct type Zutat)
-        Zutat Zustand (Enum)
-        Kochzeit
-        
-    + 
-    
-    Cook()
-    
-    
+- Bitmap Korrigieren
+- Movement komischer fehler
+- Bewertung vom Essen
+    Leicht das erweitern können
+- Quest System

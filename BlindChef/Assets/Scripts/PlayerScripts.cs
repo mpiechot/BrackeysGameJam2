@@ -14,51 +14,69 @@ public class PlayerScripts : MonoBehaviour
     private Essen carry;
     public SpriteRenderer carrySprite;
 
+    public Quest quest;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         tileMask = transform.Find("TileMask").gameObject;
         tileMask.SetActive(true);
         carrySprite.enabled = false;
+        quest = null;
     }
 
 
     void Update()
     {
         HandleMovement();
+        HandleInteraction();
+    }
+
+    private void HandleInteraction()
+    {
         if (Input.GetButtonDown("Fire1"))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position,lastDirection, 2f,1 << LayerMask.NameToLayer("Interactable"));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, lastDirection, 2f, 1 << LayerMask.NameToLayer("Interactable"));
             //Debug.DrawLine(transform.position, (Vector2)transform.position + lastDirection);
-            if(hit.collider != null)
+            if (hit.collider != null)
             {
                 InteractObject obj = hit.collider.gameObject.GetComponent<InteractObject>();
                 if (obj.CanGetIngredient)
                 {
-                    if (carry == null)
-                    {
-                        carry = obj.GetFood();
-                    }
-                    else
-                    {
-                        carry.Merge(obj.GetFood());
-                    }
-                    carrySprite.enabled = true;
+                    CollectIngredients(obj);
                 }
                 else
                 {
-                    if (carry != null && obj.IsEmpty)
-                    {
-                        //TODO Place Item to this position!
-                        obj.AddFood(carry);
-                        carry = null;
-                        carrySprite.enabled = false;
-                    }
+                    PutFoodDown(obj);
                 }
-                
+
             }
 
         }
+    }
+
+    private void PutFoodDown(InteractObject obj)
+    {
+        if (carry != null && obj.IsEmpty)
+        {
+            //TODO Place Item to this position!
+            obj.AddFood(carry);
+            carry = null;
+            carrySprite.enabled = false;
+        }
+    }
+
+    private void CollectIngredients(InteractObject obj)
+    {
+        if (carry == null)
+        {
+            carry = obj.GetFood();
+        }
+        else
+        {
+            carry.Merge(obj.GetFood());
+        }
+        carrySprite.enabled = true;
     }
 
     void HandleMovement()
@@ -76,4 +94,8 @@ public class PlayerScripts : MonoBehaviour
         rb.velocity = moveVector;
     }
 
+    public Essen GetEssen()
+    {
+        return carry;
+    }
 }

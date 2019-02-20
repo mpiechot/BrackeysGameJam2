@@ -9,6 +9,11 @@ public enum ZutatTyp
     Hackfleisch
 }
 
+//Byte Codierung:
+// Ro|Ko|Br|Wa|Mü
+// 0  0  0  0  0
+// 1  2  3  4  5
+
 public enum ZutatZustand
 {
     Roh = 1,

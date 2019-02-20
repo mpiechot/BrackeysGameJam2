@@ -18,6 +18,16 @@ public class Pot : InteractObject
             Process();
     }
 
+    public byte GetRemoveZustandMask(params ZutatZustand[] zustand)
+    {
+        byte mask = 0;
+        foreach(ZutatZustand z in zustand)
+        {
+            mask |= (byte)z;
+        }
+        return (byte)(~mask);
+    }
+
     protected override void Process()
     {
         currentProcessTime += Time.deltaTime;
@@ -27,6 +37,7 @@ public class Pot : InteractObject
             {
                 var z = currentEssen.ZutatenListe[i];
                 z.Zustand |= (byte)ZutatZustand.Verbrannt;
+                z.Zustand &= GetRemoveZustandMask(ZutatZustand.Gekocht);
                 currentEssen.ZutatenListe[i] = z;
             }
         }
@@ -35,9 +46,8 @@ public class Pot : InteractObject
             for (int i = 0; i < currentEssen.ZutatenListe.Count; i++)
             {
                 var z = currentEssen.ZutatenListe[i];
-                z.Zustand = (byte)(z.Zustand >> 1);
-                z.Zustand = (byte)(z.Zustand << 1);
                 z.Zustand |= (byte)ZutatZustand.Gekocht;
+                z.Zustand &= GetRemoveZustandMask(ZutatZustand.Roh);
                 currentEssen.ZutatenListe[i] = z;
             }
         }

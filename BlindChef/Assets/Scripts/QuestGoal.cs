@@ -20,6 +20,7 @@ public class QuestGoal
                 {
                     foundZ1 = true;
                     current.RemoveAt(i);
+                    break;
                 }
             }
             if (!foundZ1)

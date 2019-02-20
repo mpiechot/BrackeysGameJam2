@@ -1,5 +1,11 @@
 - Bitmap Korrigieren
-- Movement komischer fehler
-- Bewertung vom Essen
+- Movement komischer fehler -> Raycast
+- Bewertung vom Essen -> Score
     Leicht das erweitern können
-- Quest System
+- Quest System ! 
+- Zutat Feedback -> Pulse
+- Geräusch ring -> Enable, disable
+- Mehr Quests
+- Quest generation script -> Schwierigkeitsgrad
+- Grafiken benötigt
+- Fertiges gericht sehen

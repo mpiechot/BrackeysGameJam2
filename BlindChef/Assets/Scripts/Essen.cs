@@ -22,7 +22,7 @@ public enum ZutatZustand
     Gewaschen = 8,
     Vermüllt = 16
 }
-
+[System.Serializable]
 public struct Zutat
 {
     public byte Zustand;

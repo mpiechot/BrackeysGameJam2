@@ -5,6 +5,8 @@ using UnityEngine;
 public class Bar : InteractObject
 {
 
+    public PlayerScripts player;
+
     private void Start()
     {
         IsEmpty = true;
@@ -37,6 +39,17 @@ public class Bar : InteractObject
                 print("Vermüllt");
         }
         );
+
+        if (player.quest.goal.IsReached(currentEssen))
+        {
+            print("Yay!");
+        }
+        else
+        {
+            print("Nooooo!");
+        }
+        player.quest = null;
+
         IsEmpty = true;
         isProcessing = false;
         currentProcessTime = 0;

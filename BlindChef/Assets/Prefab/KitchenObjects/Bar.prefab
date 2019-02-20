@@ -71,3 +71,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProcessTime: 0
+  player: {fileID: 0}

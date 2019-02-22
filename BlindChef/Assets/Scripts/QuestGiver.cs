@@ -5,15 +5,22 @@ using TMPro;
 
 public class QuestGiver : MonoBehaviour
 {
+    public static QuestGiver Instance;
+
     public List<Quest> quests;
-
     public PlayerScripts player;
-
+    public OutroManager Om;
     public GameObject questWindow;
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
 
     private int randomQuest;
+
+    private void Awake()
+    {
+        Instance = this;
+        NewQuest();
+    }
 
     public void OpenQuestWindow()
     {
@@ -31,11 +38,8 @@ public class QuestGiver : MonoBehaviour
         player.quest = quests[randomQuest];
     }
 
-    void Update()
+    public void NewQuest()
     {
-        if(player.quest == null && !questWindow.activeSelf)
-        {
-            OpenQuestWindow();
-        }
+        OpenQuestWindow();
     }
 }

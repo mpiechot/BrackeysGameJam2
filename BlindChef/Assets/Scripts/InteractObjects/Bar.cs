@@ -9,6 +9,8 @@ public class Bar : InteractObject
     public PlayerScripts player;
     public TextMeshProUGUI score;
 
+    private QuestGiver qg;
+
     private void Start()
     {
         IsEmpty = true;
@@ -16,6 +18,7 @@ public class Bar : InteractObject
         currentProcessTime = 0;
         CanGetIngredient = false;
         score.text = player.score+"";
+        qg = QuestGiver.Instance;
     }
 
     void Update()
@@ -47,12 +50,13 @@ public class Bar : InteractObject
         {
             print("Yay!");
             player.score += 10;
-
+            qg.Om.Display(player, currentEssen, true);
         }
         else
         {
             print("Nooooo!");
             player.score -= 10;
+            qg.Om.Display(player, currentEssen, false);
         }
         //Show Food
 

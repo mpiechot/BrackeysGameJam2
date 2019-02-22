@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerScripts : MonoBehaviour
 {
     public float MoveSpeed;
+    public int score { get; set; }
 
     private Vector2 moveVector;
     private Rigidbody2D rb;

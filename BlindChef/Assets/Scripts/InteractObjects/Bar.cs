@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Bar : InteractObject
 {
 
     public PlayerScripts player;
+    public TextMeshProUGUI score;
 
     private void Start()
     {
@@ -13,6 +15,7 @@ public class Bar : InteractObject
         isProcessing = false;
         currentProcessTime = 0;
         CanGetIngredient = false;
+        score.text = player.score+"";
     }
 
     void Update()
@@ -43,12 +46,17 @@ public class Bar : InteractObject
         if (player.quest.goal.IsReached(currentEssen))
         {
             print("Yay!");
+            player.score += 10;
+
         }
         else
         {
             print("Nooooo!");
+            player.score -= 10;
         }
+
         player.quest = null;
+        score.text = player.score + "";
 
         IsEmpty = true;
         isProcessing = false;

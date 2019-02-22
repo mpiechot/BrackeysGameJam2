@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class Pot : InteractObject
 {
+    private ParticleSystem particles;
+
     private void Start()
     {
         IsEmpty = true;
         isProcessing = false;
         currentProcessTime = 0;
         CanGetIngredient = false;
+        particles = GetComponentInChildren<ParticleSystem>();
+        particles.startColor = Color.red;
     }
 
     void Update()
     {
         if (isProcessing)
             Process();
+        else{
+            particles.loop = false;
+        }
     }
 
     public byte GetRemoveZustandMask(params ZutatZustand[] zustand)
@@ -30,9 +37,14 @@ public class Pot : InteractObject
 
     protected override void Process()
     {
+        if(particles.isStopped || !particles.loop){
+            particles.Play();
+            particles.loop = true;
+        }
         currentProcessTime += Time.deltaTime;
         if(currentProcessTime > ProcessTime * 1.5f)
         {
+            particles.startColor = Color.gray;
             for (int i = 0; i < currentEssen.ZutatenListe.Count; i++)
             {
                 var z = currentEssen.ZutatenListe[i];
@@ -43,6 +55,7 @@ public class Pot : InteractObject
         }
         else if(currentProcessTime > ProcessTime)
         {
+            particles.startColor = Color.green;
             for (int i = 0; i < currentEssen.ZutatenListe.Count; i++)
             {
                 var z = currentEssen.ZutatenListe[i];

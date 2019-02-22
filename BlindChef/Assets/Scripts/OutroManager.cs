@@ -42,6 +42,8 @@ public class OutroManager : MonoBehaviour
         {
             Restart();
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
 
     string convertZustand(byte zustand)

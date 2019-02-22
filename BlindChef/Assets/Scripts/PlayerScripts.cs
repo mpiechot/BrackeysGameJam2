@@ -14,6 +14,7 @@ public class PlayerScripts : MonoBehaviour
     private Vector2 lastDirection;
     private Essen carry;
     public SpriteRenderer carrySprite;
+    public BouncePulse carryBounce;
 
     public Quest quest;
     public ParticleSystem footsteps;
@@ -79,6 +80,7 @@ public class PlayerScripts : MonoBehaviour
             carry.Merge(obj.GetFood());
         }
         carrySprite.enabled = true;
+        carryBounce.StartAnimating();
     }
 
     void HandleMovement()
@@ -91,7 +93,7 @@ public class PlayerScripts : MonoBehaviour
         moveVector = new Vector2(xMove, yMove) * Time.deltaTime * 60f;
         if(moveVector != Vector2.zero) {
             lastDirection = moveVector;
-            carrySprite.gameObject.transform.position = (Vector2)transform.position + moveVector.normalized;
+            carrySprite.transform.position = transform.position + (Vector3)moveVector.normalized + Vector3.back * 0.3f;
             if (footsteps.isStopped || !footsteps.loop)
             {
                 footsteps.Play();

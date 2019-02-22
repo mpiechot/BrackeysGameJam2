@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DustBin : InteractObject
 {
+    private ParticleSystem particles;
 
     private void Start()
     {
@@ -11,16 +12,26 @@ public class DustBin : InteractObject
         isProcessing = false;
         currentProcessTime = 0;
         CanGetIngredient = false;
+        particles = GetComponentInChildren<ParticleSystem>();
     }
 
     void Update()
     {
         if (isProcessing)
             Process();
+        else{
+            Debug.Log("Stop!");
+            particles.loop = false;
+        }
     }
 
     protected override void Process()
     {
+        if (particles.isStopped || !particles.loop)
+        {
+            particles.Play();
+            particles.loop = true;
+        }
         currentProcessTime += Time.deltaTime;
         if (currentProcessTime > ProcessTime)
         {

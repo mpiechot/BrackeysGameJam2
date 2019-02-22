@@ -13,7 +13,6 @@ public class Pot : InteractObject
         currentProcessTime = 0;
         CanGetIngredient = false;
         particles = GetComponentInChildren<ParticleSystem>();
-        particles.startColor = Color.red;
     }
 
     void Update()
@@ -55,7 +54,6 @@ public class Pot : InteractObject
         }
         else if(currentProcessTime > ProcessTime)
         {
-            particles.startColor = Color.green;
             for (int i = 0; i < currentEssen.ZutatenListe.Count; i++)
             {
                 var z = currentEssen.ZutatenListe[i];

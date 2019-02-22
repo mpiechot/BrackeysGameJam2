@@ -5,7 +5,10 @@
 - Quest System ! 
 - Zutat Feedback -> Pulse
 - Geräusch ring -> Enable, disable
+
 - Mehr Quests
 - Quest generation script -> Schwierigkeitsgrad
+
+
 - Grafiken benötigt
 - Fertiges gericht sehen

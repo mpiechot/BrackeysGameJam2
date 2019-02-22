@@ -17,13 +17,15 @@ public class OutroManager : MonoBehaviour
         {
             displayText += "Congratulations, you cooked the correct meal.\n" +
                 "";
-            essen.ZutatenListe.ForEach(z => displayText += z.ZutatName + " " + z.Zustand + "\n");
+            essen.ZutatenListe.ForEach(z => displayText += z.ZutatName + " " + convertZustand(z.Zustand) + "\n");
+            displayText += player.quest.description;
         }
         else
         {
             displayText += "Oh no, you cooked the wrong meal.\n" +
                 "";
-            essen.ZutatenListe.ForEach(z => displayText += z.ZutatName + " " + z.Zustand + "\n");
+            essen.ZutatenListe.ForEach(z => displayText += z.ZutatName + " " + convertZustand(z.Zustand) + "\n");
+            displayText += player.quest.description;
         }
         textObj.text = displayText;
     }
@@ -42,5 +44,20 @@ public class OutroManager : MonoBehaviour
         }
     }
 
+    string convertZustand(byte zustand)
+    {
+        string zstString = "";
+        if ((zustand & 1) == 1)
+            zstString += "fresh ";
+        if ((zustand & 2) == 2)
+            zstString += "cooked ";
+        if ((zustand & 4) == 4)
+            zstString += "burned ";
+        if ((zustand & 8) == 8)
+            zstString += "washed ";
+        if ((zustand & 16) == 16)
+            zstString += "trashed ";
 
+        return zstString;
+    }
 }

@@ -42,4 +42,12 @@ public class QuestGiver : MonoBehaviour
     {
         OpenQuestWindow();
     }
+
+    //private void Update()
+    //{
+    //    if (Input.GetButtonDown("Fire1") && questWindow.activeInHierarchy)
+    //    {
+    //        AcceptQuest();
+    //    }
+    //}
 }

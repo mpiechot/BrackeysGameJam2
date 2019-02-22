@@ -15,6 +15,7 @@ public class PlayerScripts : MonoBehaviour
     public SpriteRenderer carrySprite;
 
     public Quest quest;
+    public ParticleSystem footsteps;
 
     void Start()
     {
@@ -84,12 +85,21 @@ public class PlayerScripts : MonoBehaviour
         float xMove = Input.GetAxisRaw("Horizontal") * MoveSpeed;
         float yMove = Input.GetAxisRaw("Vertical") * MoveSpeed;
 
-
+        
 
         moveVector = new Vector2(xMove, yMove) * Time.deltaTime * 60f;
         if(moveVector != Vector2.zero) {
             lastDirection = moveVector;
             carrySprite.gameObject.transform.position = (Vector2)transform.position + moveVector.normalized;
+            if (footsteps.isStopped)
+            {
+                footsteps.Play();
+            }
+        }
+        else
+        {
+            footsteps.Stop();
+           
         }
         rb.velocity = moveVector;
     }

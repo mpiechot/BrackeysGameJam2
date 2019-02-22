@@ -94,11 +94,13 @@ public class PlayerScripts : MonoBehaviour
             if (footsteps.isStopped)
             {
                 footsteps.Play();
+                footsteps.loop = true;
             }
         }
         else
         {
-            footsteps.Stop();
+            footsteps.loop = false;
+            //footsteps.Stop();
            
         }
         rb.velocity = moveVector;

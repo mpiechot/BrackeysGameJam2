@@ -54,8 +54,8 @@ public class Bar : InteractObject
             print("Nooooo!");
             player.score -= 10;
         }
+        //Show Food
 
-        player.quest = null;
         score.text = player.score + "";
 
         IsEmpty = true;

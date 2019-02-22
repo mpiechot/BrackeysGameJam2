@@ -20,8 +20,7 @@ Essen
 
     - Tomatensuppe
     - Pilzragout
-    - Gefüllte Tomaten
-    - Hackfleisch mit Jägersoße
+    - Lasagne
     
 Formen des Essens:
     - Gekocht

@@ -91,7 +91,7 @@ public class PlayerScripts : MonoBehaviour
         if(moveVector != Vector2.zero) {
             lastDirection = moveVector;
             carrySprite.gameObject.transform.position = (Vector2)transform.position + moveVector.normalized;
-            if (footsteps.isStopped)
+            if (footsteps.isStopped || !footsteps.loop)
             {
                 footsteps.Play();
                 footsteps.loop = true;
@@ -100,8 +100,6 @@ public class PlayerScripts : MonoBehaviour
         else
         {
             footsteps.loop = false;
-            //footsteps.Stop();
-           
         }
         rb.velocity = moveVector;
     }

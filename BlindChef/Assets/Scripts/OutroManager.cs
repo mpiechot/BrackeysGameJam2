@@ -8,25 +8,36 @@ public class OutroManager : MonoBehaviour
 {
 
     public TextMeshProUGUI textObj;
+    public Sprite[] FoodSprites;
+    public GameObject FoodDisplay;
+
+    private List<GameObject> FoodItems;
 
     public void Display(PlayerScripts player, Essen essen, bool hasWon)
     {
         GetComponent<Canvas>().enabled = true;
         string displayText = "";
-        if(hasWon)
-        {
-            displayText += "Congratulations, you cooked the correct meal.\n" +
-                "";
-            essen.ZutatenListe.ForEach(z => displayText += z.ZutatName + " " + convertZustand(z.Zustand) + "\n");
-            displayText += player.quest.description;
-        }
+        FoodItems = new List<GameObject>();
+        if (hasWon)
+            displayText += "Congratulations, you cooked the correct meal.\n";
         else
+            displayText += "Oh no, you cooked the wrong meal.\n";
+
+        int zutatNum = 0;
+        essen.ZutatenListe.ForEach(z =>
         {
-            displayText += "Oh no, you cooked the wrong meal.\n" +
-                "";
-            essen.ZutatenListe.ForEach(z => displayText += z.ZutatName + " " + convertZustand(z.Zustand) + "\n");
-            displayText += player.quest.description;
+            displayText += z.ZutatName + " " + convertZustand(z.Zustand) + "\n";
+            Image img = Instantiate(FoodDisplay, transform).GetComponent<Image>();
+            img.transform.localPosition = new Vector3(300, 100 - 40 * zutatNum, 0);
+            img.sprite =
+            z.ZutatName == ZutatTyp.Tomato ? FoodSprites[0] :
+            z.ZutatName == ZutatTyp.Mushrooms ? FoodSprites[1] :
+            FoodSprites[2];
+            FoodItems.Add(img.gameObject);
+            zutatNum++;
         }
+        );
+        displayText += player.quest.description;
         textObj.text = displayText;
     }
 
@@ -34,6 +45,8 @@ public class OutroManager : MonoBehaviour
     {
         QuestGiver.Instance.NewQuest();
         GetComponent<Canvas>().enabled = false;
+        if(FoodItems != null)
+            FoodItems.ForEach(fi => Destroy(fi, 0.1f));
     }
 
     private void Update()

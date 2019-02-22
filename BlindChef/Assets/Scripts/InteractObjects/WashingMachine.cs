@@ -44,7 +44,7 @@ public class WashingMachine : InteractObject
         }
 
 
-        currentEssen.ZutatenListe.ForEach(z => print(z.Zustand));
+        //currentEssen.ZutatenListe.ForEach(z => print(z.Zustand));
     }
 
     public override void AddFood(Essen foodToAdd)

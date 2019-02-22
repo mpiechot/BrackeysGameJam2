@@ -16,6 +16,8 @@ public class QuestGiver : MonoBehaviour
 
     private int randomQuest;
 
+    private bool toggleWindowButton;
+
     private void Awake()
     {
         Instance = this;
@@ -43,11 +45,11 @@ public class QuestGiver : MonoBehaviour
         OpenQuestWindow();
     }
 
-    //private void Update()
-    //{
-    //    if (Input.GetButtonDown("Fire1") && questWindow.activeInHierarchy)
-    //    {
-    //        AcceptQuest();
-    //    }
-    //}
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire1") && questWindow.activeInHierarchy)
+        {
+            AcceptQuest();
+        }
+    }
 }

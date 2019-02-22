@@ -431,6 +431,7 @@ MonoBehaviour:
 
     You are so in love with your food and your job that you have gone blind.
 
+    You can''t see the ingredients, the Pots, the Dishwashers and the Dustbins.
 
     Pick ingredients from the storage and process them in the proper objects.'
   m_isRightToLeft: 0
@@ -502,12 +503,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 260507353}
-    characterCount: 159
+    characterCount: 233
     spriteCount: 0
-    spaceCount: 31
-    wordCount: 30
+    spaceCount: 42
+    wordCount: 42
     linkCount: 0
-    lineCount: 7
+    lineCount: 8
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0

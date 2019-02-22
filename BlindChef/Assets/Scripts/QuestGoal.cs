@@ -9,17 +9,18 @@ public class QuestGoal
 
     public bool IsReached(Essen collected)
     {
-        List<Zutat> current = collected.ZutatenListe;
+        Zutat[] current = new Zutat[collected.ZutatenListe.Count];
+        collected.ZutatenListe.CopyTo(current);
         foreach(Zutat z1 in goals)
         {
             bool foundZ1 = false;
-            for(int i= current.Count-1;i >= 0;i--)
+            for(int i= current.Length-1;i >= 0;i--)
             {
                 Zutat z2 = current[i];
                 if (z1.ZutatName.Equals(z2.ZutatName) && z1.Zustand == z2.Zustand)
                 {
                     foundZ1 = true;
-                    current.RemoveAt(i);
+                    current[i].ZutatName = ZutatTyp.Empty;
                     break;
                 }
             }

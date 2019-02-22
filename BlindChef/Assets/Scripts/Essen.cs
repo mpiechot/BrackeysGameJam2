@@ -4,9 +4,10 @@ using UnityEngine;
 
 public enum ZutatTyp
 {
-    Pilze,
-    Tomaten,
-    Hackfleisch
+    Empty,
+    Mushrooms,
+    Tomato,
+    Meat
 }
 
 //Byte Codierung:

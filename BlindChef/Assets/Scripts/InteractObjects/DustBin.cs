@@ -19,10 +19,8 @@ public class DustBin : InteractObject
     {
         if (isProcessing)
             Process();
-        else{
-            Debug.Log("Stop!");
+        else if(particles.loop)
             particles.loop = false;
-        }
     }
 
     protected override void Process()
